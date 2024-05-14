@@ -38,27 +38,27 @@ static gboolean deviceMonitor(GstBus *, GstMessage *message, gpointer m)
 QGstreamerVideoDevices::QGstreamerVideoDevices(QPlatformMediaIntegration *integration)
     : QPlatformVideoDevices(integration)
 {
-    GstDeviceMonitor *monitor;
-    GstBus *bus;
+    // GstDeviceMonitor *monitor;
+    // GstBus *bus;
 
-    monitor = gst_device_monitor_new();
+    // monitor = gst_device_monitor_new();
 
-    gst_device_monitor_add_filter (monitor, nullptr, nullptr);
+    // gst_device_monitor_add_filter (monitor, nullptr, nullptr);
 
-    bus = gst_device_monitor_get_bus(monitor);
-    gst_bus_add_watch(bus, deviceMonitor, this);
-    gst_object_unref(bus);
+    // bus = gst_device_monitor_get_bus(monitor);
+    // gst_bus_add_watch(bus, deviceMonitor, this);
+    // gst_object_unref(bus);
 
-    gst_device_monitor_start(monitor);
+    // gst_device_monitor_start(monitor);
 
-    auto devices = gst_device_monitor_get_devices(monitor);
+    // auto devices = gst_device_monitor_get_devices(monitor);
 
-    while (devices) {
-        GstDevice *device = static_cast<GstDevice *>(devices->data);
-        addDevice(device);
-        gst_object_unref(device);
-        devices = g_list_delete_link(devices, devices);
-    }
+    // while (devices) {
+    //     GstDevice *device = static_cast<GstDevice *>(devices->data);
+    //     addDevice(device);
+    //     gst_object_unref(device);
+    //     devices = g_list_delete_link(devices, devices);
+    // }
 }
 
 QList<QCameraDevice> QGstreamerVideoDevices::videoDevices() const
